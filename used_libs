@@ -1,0 +1,8 @@
+libc.so.6
+libcairo.so.2
+libm.so.6
+libnuma.so.1
+libpciaccess.so.0
+libtinfow.so.6
+libudev.so.1
+libxml2.so.2
