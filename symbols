@@ -67,6 +67,7 @@ libhwloc.so.5:hwloc_free_xmlbuffer
 libhwloc.so.5:hwloc_get_api_version
 libhwloc.so.5:hwloc_get_area_membind
 libhwloc.so.5:hwloc_get_area_membind_nodeset
+libhwloc.so.5:hwloc_get_area_memlocation
 libhwloc.so.5:hwloc_get_closest_objs
 libhwloc.so.5:hwloc_get_cpubind
 libhwloc.so.5:hwloc_get_depth_type
