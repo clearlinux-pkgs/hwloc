@@ -4,12 +4,12 @@
 #
 Name     : hwloc
 Version  : 1.11.3
-Release  : 5
+Release  : 6
 URL      : https://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.3.tar.gz
 Source0  : https://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.3.tar.gz
 Summary  : Hardware locality detection and management library
 Group    : Development/Tools
-License  : BSD-3-Clause
+License  : BSD-3-Clause Intel
 Requires: hwloc-bin
 Requires: hwloc-lib
 Requires: hwloc-data
@@ -86,7 +86,11 @@ lib components for the hwloc package.
 %setup -q -n hwloc-1.11.3
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
+export SOURCE_DATE_EPOCH=1493487099
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -94,10 +98,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
+export SOURCE_DATE_EPOCH=1493487099
 rm -rf %{buildroot}
 %make_install
 
@@ -153,8 +158,8 @@ rm -rf %{buildroot}
 /usr/include/hwloc/openfabrics-verbs.h
 /usr/include/hwloc/plugins.h
 /usr/include/hwloc/rename.h
-/usr/lib64/*.so
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/libhwloc.so
+/usr/lib64/pkgconfig/hwloc.pc
 
 %files doc
 %defattr(-,root,root,-)
@@ -165,4 +170,5 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libhwloc.so.5
+/usr/lib64/libhwloc.so.5.7.0
