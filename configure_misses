@@ -48,9 +48,6 @@ Configure miss: fls
 Configure miss: flsl
 Configure miss: clz
 Configure miss: clzl
-Configure miss: valgrind/valgrind.h usability
-Configure miss: valgrind/valgrind.h presence
-Configure miss: valgrind/valgrind.h
 Configure miss: whether RUNNING_ON_VALGRIND is declared
 Configure miss: pthread_np.h usability
 Configure miss: pthread_np.h presence
@@ -77,9 +74,6 @@ Configure miss: NVCtrl/NVCtrl.h presence
 Configure miss: NVCtrl/NVCtrl.h
 Configure miss: if plugin support is enabled
 Configure miss: if this is a developer build
-Configure miss: x86_64-generic-linux-gnu-doxygen
-Configure miss: x86_64-generic-linux-gnu-pdflatex
-Configure miss: x86_64-generic-linux-gnu-makeindex
 Configure miss: x86_64-generic-linux-gnu-fig2dev
 Configure miss: fig2dev
 Configure miss: x86_64-generic-linux-gnu-gs
@@ -94,9 +88,6 @@ Configure miss: lynx
 Configure miss: if can build top-level README
 Configure miss: if will build doxygen docs
 Configure miss: whether to enable "picky" compiler mode
-Configure miss: xlocale.h usability
-Configure miss: xlocale.h presence
-Configure miss: xlocale.h
 Configure miss: termcap support using ncurses and 
 Configure miss: termcap support using ncurses and -ltermcap
 Configure miss: x86_64-generic-linux-gnu-rm
