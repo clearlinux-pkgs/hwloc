@@ -42,7 +42,6 @@ Configure miss: whether getprogname is declared
 Configure miss: whether getexecname is declared
 Configure miss: whether GetModuleFileName is declared
 Configure miss: old prototype of sched_setaffinity
-Configure miss: KERRIGHED
 Configure miss: lib
 Configure miss: fls
 Configure miss: flsl
@@ -90,10 +89,6 @@ Configure miss: if will build doxygen docs
 Configure miss: whether to enable "picky" compiler mode
 Configure miss: termcap support using ncurses and 
 Configure miss: termcap support using ncurses and -ltermcap
-Configure miss: x86_64-generic-linux-gnu-rm
 Configure miss: infiniband/verbs.h usability
 Configure miss: infiniband/verbs.h presence
 Configure miss: infiniband/verbs.h
-Configure miss: myriexpress.h usability
-Configure miss: myriexpress.h presence
-Configure miss: myriexpress.h

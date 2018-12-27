@@ -1,5 +1,5 @@
 PKG_NAME := hwloc
-URL = https://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.3.tar.gz
+URL = https://download.open-mpi.org/release/hwloc/v2.0/hwloc-2.0.3.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
