@@ -4,7 +4,7 @@
 #
 Name     : hwloc
 Version  : 2.0.3
-Release  : 14
+Release  : 15
 URL      : https://download.open-mpi.org/release/hwloc/v2.0/hwloc-2.0.3.tar.gz
 Source0  : https://download.open-mpi.org/release/hwloc/v2.0/hwloc-2.0.3.tar.gz
 Summary  : Hardware locality detection and management library
@@ -77,6 +77,14 @@ Requires: hwloc-man = %{version}-%{release}
 doc components for the hwloc package.
 
 
+%package extras
+Summary: extras components for the hwloc package.
+Group: Default
+
+%description extras
+extras components for the hwloc package.
+
+
 %package lib
 Summary: lib components for the hwloc package.
 Group: Libraries
@@ -111,7 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545875516
+export SOURCE_DATE_EPOCH=1546003020
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -130,7 +138,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1545875516
+export SOURCE_DATE_EPOCH=1546003020
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hwloc
 cp COPYING %{buildroot}/usr/share/package-licenses/hwloc/COPYING
@@ -141,6 +149,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/hwloc/COPYING
 
 %files bin
 %defattr(-,root,root,-)
+%exclude /usr/bin/lstopo
 /usr/bin/hwloc-annotate
 /usr/bin/hwloc-bind
 /usr/bin/hwloc-calc
@@ -154,7 +163,6 @@ cp COPYING %{buildroot}/usr/share/package-licenses/hwloc/COPYING
 /usr/bin/hwloc-ls
 /usr/bin/hwloc-patch
 /usr/bin/hwloc-ps
-/usr/bin/lstopo
 /usr/bin/lstopo-no-graphics
 
 %files data
@@ -585,6 +593,10 @@ cp COPYING %{buildroot}/usr/share/package-licenses/hwloc/COPYING
 %files doc
 %defattr(0644,root,root,0755)
 %doc /usr/share/doc/hwloc/*
+
+%files extras
+%defattr(-,root,root,-)
+/usr/bin/lstopo
 
 %files lib
 %defattr(-,root,root,-)
