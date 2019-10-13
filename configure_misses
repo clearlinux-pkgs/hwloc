@@ -67,7 +67,6 @@ Configure miss: cuda_runtime_api.h
 Configure miss: nvml.h usability
 Configure miss: nvml.h presence
 Configure miss: nvml.h
-Configure miss: XOpenDisplay in -lX11
 Configure miss: NVCtrl/NVCtrl.h usability
 Configure miss: NVCtrl/NVCtrl.h presence
 Configure miss: NVCtrl/NVCtrl.h
@@ -89,6 +88,7 @@ Configure miss: if will build doxygen docs
 Configure miss: whether to enable "picky" compiler mode
 Configure miss: termcap support using ncurses and 
 Configure miss: termcap support using ncurses and -ltermcap
+Configure miss: bind in -lsocket
 Configure miss: infiniband/verbs.h usability
 Configure miss: infiniband/verbs.h presence
 Configure miss: infiniband/verbs.h
