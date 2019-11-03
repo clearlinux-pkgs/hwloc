@@ -4,7 +4,7 @@
 #
 Name     : hwloc
 Version  : 2.1.0
-Release  : 18
+Release  : 19
 URL      : https://download.open-mpi.org/release/hwloc/v2.1/hwloc-2.1.0.tar.gz
 Source0  : https://download.open-mpi.org/release/hwloc/v2.1/hwloc-2.1.0.tar.gz
 Summary  : Hardware locality detection and management library
