@@ -7,3 +7,4 @@ cairo-dev
 libxml2-dev
 ncurses-dev
 numactl-dev
+openmpi-dev

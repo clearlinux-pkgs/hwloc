@@ -4,7 +4,7 @@
 #
 Name     : hwloc
 Version  : 2.1.0
-Release  : 19
+Release  : 21
 URL      : https://download.open-mpi.org/release/hwloc/v2.1/hwloc-2.1.0.tar.gz
 Source0  : https://download.open-mpi.org/release/hwloc/v2.1/hwloc-2.1.0.tar.gz
 Summary  : Hardware locality detection and management library
@@ -21,6 +21,7 @@ BuildRequires : libpciaccess-dev
 BuildRequires : libxml2-dev
 BuildRequires : ncurses-dev
 BuildRequires : numactl-dev
+BuildRequires : openmpi-dev
 BuildRequires : pciutils-dev
 BuildRequires : pkgconfig(ice)
 BuildRequires : pkgconfig(x11)
@@ -113,13 +114,14 @@ man components for the hwloc package.
 
 %prep
 %setup -q -n hwloc-2.1.0
+cd %{_builddir}/hwloc-2.1.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571000959
+export SOURCE_DATE_EPOCH=1578595322
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -128,7 +130,7 @@ export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-m
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-%configure --disable-static
+%configure --disable-static --enable-netloc
 make  %{?_smp_mflags}
 
 %check
@@ -139,7 +141,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1571000959
+export SOURCE_DATE_EPOCH=1578595322
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hwloc
 cp %{_builddir}/hwloc-2.1.0/COPYING %{buildroot}/usr/share/package-licenses/hwloc/23ae9dd3b06c170d1abfbdf517a2e4fea90b7cdd
@@ -164,6 +166,11 @@ cp %{_builddir}/hwloc-2.1.0/COPYING %{buildroot}/usr/share/package-licenses/hwlo
 /usr/bin/hwloc-patch
 /usr/bin/hwloc-ps
 /usr/bin/lstopo-no-graphics
+/usr/bin/netloc_draw_to_json
+/usr/bin/netloc_ib_extract_dats
+/usr/bin/netloc_ib_gather_raw
+/usr/bin/netloc_mpi_find_hosts
+/usr/bin/netloc_rank_order
 
 %files data
 %defattr(-,root,root,-)
@@ -180,6 +187,10 @@ cp %{_builddir}/hwloc-2.1.0/COPYING %{buildroot}/usr/share/package-licenses/hwlo
 /usr/share/hwloc/hwloc.dtd
 /usr/share/hwloc/hwloc2-diff.dtd
 /usr/share/hwloc/hwloc2.dtd
+/usr/share/hwloc/netloc_draw.html
+/usr/share/hwloc/netloc_draw.js
+/usr/share/hwloc/vis.min.css
+/usr/share/hwloc/vis.min.js
 
 %files dev
 %defattr(-,root,root,-)
@@ -206,6 +217,7 @@ cp %{_builddir}/hwloc-2.1.0/COPYING %{buildroot}/usr/share/package-licenses/hwlo
 /usr/include/hwloc/rename.h
 /usr/include/hwloc/shmem.h
 /usr/lib64/libhwloc.so
+/usr/lib64/libnetloc.so
 /usr/lib64/pkgconfig/hwloc.pc
 /usr/share/man/man3/HWLOC_ALLOW_FLAG_ALL.3
 /usr/share/man/man3/HWLOC_ALLOW_FLAG_CUSTOM.3
@@ -626,6 +638,8 @@ cp %{_builddir}/hwloc-2.1.0/COPYING %{buildroot}/usr/share/package-licenses/hwlo
 %defattr(-,root,root,-)
 /usr/lib64/libhwloc.so.15
 /usr/lib64/libhwloc.so.15.1.0
+/usr/lib64/libnetloc.so.0
+/usr/lib64/libnetloc.so.0.0.0
 
 %files license
 %defattr(0644,root,root,0755)
