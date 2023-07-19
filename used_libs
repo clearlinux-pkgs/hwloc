@@ -1,7 +1,7 @@
 libc.so.6
 libm.so.6
 libmpi.so.40
+libncursesw.so.6
 libpciaccess.so.0
-libtinfow.so.6
 libudev.so.1
 libxml2.so.2
